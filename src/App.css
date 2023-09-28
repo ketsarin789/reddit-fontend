@@ -1,0 +1,112 @@
+body {
+  background-color: #dae0e6;
+}
+.icon-container {
+  display: flex;
+  gap: 10px;
+}
+.link-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 23px;
+}
+.input-container {
+  height: 20px;
+  align-self: center;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #f6f7f8;
+}
+.nav-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f6f7f8;
+  align-items: center;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 200px;
+  padding: 20px;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: #0000003d 0 3px 8px;
+}
+.media {
+  width: 18px;
+  height: 18px;
+  border-radius: 1px solid grey;
+  background-color: #ffffff;
+  gap: 5px;
+}
+.input-container1 {
+  border-radius: 5px;
+  width: 500px;
+  height: 30px;
+}
+.form-container1 {
+  background-color: #f6f7f8;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  width: 80%;
+  height: 50%;
+  border-radius: 1px solid grey;
+  gap: 5px;
+}
+.post-group {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+.votes-button {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  background-color: #dae0e6;
+  padding-top: 20px;
+}
+.post-span {
+  text-align: center;
+}
+.createPost {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+.post-button {
+  float: Right;
+  width: 80px;
+  margin-top: 10px;
+  background-color: lightgrey;
+  border-radius: 20px;
+  background-color: rgb(161, 21, 21);
+  color: #ffffff;
+}
+.post-button1 {
+  float: Right;
+  color: #ffffff;
+  margin-top: 10px;
+  background-color: green;
+  border-radius: 20px;
+}
+.link {
+  text-decoration-line: none;
+  color: black;
+}
+.drafts-div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.button-draft {
+  border-radius: 20px;
+}
+.select {
+  background-color: aquamarine;
+}
