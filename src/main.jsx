@@ -11,6 +11,7 @@ import "bootstrap-social/bootstrap-social.css";
 import CreatePostpage from "./componant/CreatePostpage";
 import Home from "./componant/Home.jsx";
 import { Postpage } from "./componant/Postpage.jsx";
+import EditPost from "./componant/EditPost.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,8 @@ const router = createBrowserRouter([
       { path: "logout", element: <Logout /> },
       { path: "register", element: <Register /> },
       { path: "createPost", element: <CreatePostpage /> },
+      // { path: "posts/:postId", element: <Postpage /> },
+      { path: "editPost/:postId", element: <EditPost /> },
     ],
   },
 ]);

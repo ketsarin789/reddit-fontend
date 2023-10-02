@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import React from "react";
 import redditIcon from "../images/reddit.jpeg";
 import home from "../images/home.png";
+import search from "../images/search.jpeg";
 
 function Nav({ user, setUser, setToken }) {
   function handleLogout() {
@@ -13,19 +14,19 @@ function Nav({ user, setUser, setToken }) {
     <div className="nav-container">
       <div className="icon-container" style={{ paddingTop: "10px" }}>
         <img src={redditIcon} alt="reddit" />
-
-        <Link>
-          <img
-            src={home}
-            alt="home"
-            style={{ width: "20px", paddingTop: "13px" }}
-          />
-        </Link>
-
-        <span>
-          <img />
-        </span>
-        <input placeholder="search reddit" className="input-container" />
+        <div>
+          <Link>
+            <img
+              src={home}
+              alt="home"
+              style={{ width: "20px", paddingTop: "13px" }}
+            />
+          </Link>
+          {/* </div>
+        <Link to="editPost">Edit</Link>
+        <div> */}
+          <input placeholder="search reddit" className="input-container" />
+        </div>
       </div>
       <div style={{ gap: "5px" }}>
         <span>➕</span>

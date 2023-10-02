@@ -4,17 +4,16 @@ import { Container, Row, Col } from "reactstrap";
 import { Link, useOutletContext, useParams } from "react-router-dom";
 import socia from "../images/socia.jpeg";
 import link from "../images/link-icon.jpeg";
-
+import { useNavigate } from "react-router-dom";
 import { API } from "../lib/index.js";
-import Select from "react-select";
 
 function CreatePostpage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [text, setText] = useState("");
   const [title, setTitle] = useState("");
   const [error, setError] = useState("");
-  const [subreddit, setSubreddit] = useState([]);
-
+  const [subredditId, setSubredditId] = useState("");
+  const navigate = useNavigate();
   const { fetchPosts, token, fetchSubreddit, subreddits } = useOutletContext();
 
   useEffect(() => {
@@ -24,27 +23,26 @@ function CreatePostpage() {
   async function handleSubmit(e) {
     setError("");
     e.preventDefault();
+    console.log(text, title, subredditId, token);
     const res = await fetch(`${API}/posts`, {
       method: "POST",
-      header: {
+      headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ text, title, subredditId: subreddit.value }),
+      body: JSON.stringify({ text, title, subredditId: subredditId }), //subredditId: subreddit.id
     });
     const info = await res.json();
+
     if (!info.success) {
       setError(info.error);
-      console.log(info);
     }
     setText("");
     fetchPosts();
     fetchSubreddit();
+    navigate("/");
   }
-  const option = subreddits.map((subreddit) => ({
-    value: subreddit.id,
-    label: subreddit.name,
-  }));
+
   return (
     <Container
       style={{
@@ -62,12 +60,15 @@ function CreatePostpage() {
           DRAFTS <span>0</span>
         </button>
       </div>
-      <Select
-        className="select"
-        options={option}
-        onChange={(selectOption) => setSubreddit(selectOption)}
-        value={subreddit}
-      />
+      <div>
+        <select onChange={(e) => setSubredditId(e.target.value)}>
+          {subreddits.map((subreddit) => (
+            <option key={subreddit.id} value={subreddit.id}>
+              {subreddit.name}
+            </option>
+          ))}
+        </select>
+      </div>
 
       <Row style={{ marginTop: "30px" }}>
         <Col>

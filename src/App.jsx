@@ -10,12 +10,12 @@ function App() {
   const [user, setUser] = useState({});
   const [token, setToken] = useState("");
   const [posts, setPosts] = useState([]);
+
   const [subreddits, setSubreddits] = useState([]);
-  console.log(user);
 
   async function fetchUser() {
     const localToken = localStorage.getItem("token");
-    console.log(localToken);
+
     if (localToken) {
       setToken(localToken);
     }
@@ -28,7 +28,7 @@ function App() {
       },
     });
     const info = await res.json();
-    console.log(info);
+
     if (info.success) {
       setUser(info.user);
     }
@@ -37,17 +37,19 @@ function App() {
     const res = await fetch(`${API}/posts`);
     const info = await res.json();
     if (info.success) {
+      console.log(info);
       setPosts(info.posts);
     }
   }
   async function fetchSubreddit() {
     const res = await fetch(`${API}/subreddits`);
     const info = await res.json();
-    console.log(info);
+
     if (info.success) {
       setSubreddits(info.subreddits);
     }
   }
+
   useEffect(() => {
     fetchUser();
     fetchPosts();
@@ -56,7 +58,6 @@ function App() {
   return (
     <div>
       <Nav setUser={setUser} user={user} />
-      {/* <Home /> */}
 
       <Outlet
         context={{
@@ -68,6 +69,7 @@ function App() {
           setPosts,
           fetchSubreddit,
           subreddits,
+          token,
         }}
       />
     </div>
